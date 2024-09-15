@@ -1,0 +1,30 @@
+{% extends "layout.html" %}
+{% load static %}
+{% block title %}tweet{% endblock %}
+
+{% block content %}
+<h1 class='text-center mt-3'>SOCH- think about it</h1>
+
+<a class='btn btn-primary mb-2' href="{% url "tweet_create" %}">create a post</a>
+
+<div class="flex-container row gap-3 ">
+{% for tweet in tweets %}
+<div class="card" style="width: 18rem;">
+  {% if tweet.image %}
+    <img src="{{tweet.image.url}}" class="card-img-top" alt="...">
+  {% else %}
+    <img src="{% static 'path/to/default_image.jpg' %}" class="card-img-top" alt="Default Image">
+  {% endif %}
+    
+    <div class="card-body">
+      <h2 class="card-title">{{tweet.title}}</h2>
+      <p class="card-text">{{tweet.text}}</p>
+      <p class="card-user">{{tweet.user.username}}</p>
+      <a href="{% url "tweet_edit" tweet.id %}" class="btn btn-primary">Edit</a>
+      <a href="{% url "tweet_delete" tweet.id %}" class="btn btn-danger">Delete</a>
+    </div>
+  </div>
+
+{% endfor %}
+</div>
+{% endblock %}
