@@ -1,8 +1,10 @@
-.flex-container {
-    display: flex;
-    flex-direction: row; /* Align items horizontally */
-    flex-wrap: nowrap; /* Prevent wrapping to a new line */
-    gap: 1rem; /* Space between items */
-    justify-content: flex-start; /* Align items to the start of the container */
-    overflow-x: auto; /* Allow horizontal scrolling if content overflows */
+
+.container{
+    
+    margin-left: 2px;
 }
+
+.body {
+    margin-left: 20px;
+  }
+  
